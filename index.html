@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>StudPal</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Sidebar -->
+<div class="flex-container">
+  <div id="sidebar">
+    <h2>Menu</h2>
+    <button onclick="showHome()">Home</button>
+    <button onclick="showCompletedTasks()">Completed Tasks</button>
+  </div>
+
+  <div id="mainContent">
+
+    <header>
+      <h1>StudPal</h1>
+      <div class="controls">
+        <input id="searchInput" type="text" placeholder="Search notes & tasks..." />
+        <select id="themeSelect">
+          <option value="default">Light</option>
+          <option value="dark">Dark</option>
+          <option value="pink">Pink</option>
+          <option value="blue">Blue</option>
+          <option value="purple">Purple</option>
+        </select>
+      </div>
+    </header>
+
+    <!-- Notes -->
+    <div class="panel">
+      <div class="panel-header"><div>Notes</div></div>
+      <input id="noteTitle" type="text" placeholder="Title" />
+      <textarea id="noteText" placeholder="Take a note..."></textarea>
+      <div class="panel-actions">
+        <button id="addNoteBtn">Add</button>
+        <button id="clearNotes" class="ghost">Clear All</button>
+      </div>
+      <div class="list" id="notesList"></div>
+    </div>
+
+    <!-- Tasks -->
+    <div class="panel">
+      <div class="panel-header"><div>Tasks</div></div>
+      <input id="taskName" type="text" placeholder="Task" />
+      <input id="taskSubject" type="text" placeholder="Subject" />
+      <input id="taskDeadline" type="date" />
+      <select id="taskCategory">
+        <option value="">Category</option>
+        <option>Major</option>
+        <option>Core</option>
+        <option>Minor</option>
+        <option>Gen-Ed</option>
+      </select>
+      <select id="taskLabel">
+        <option value="">Label</option>
+        <option>Academics</option>
+        <option>Personal</option>
+        <option>Work</option>
+      </select>
+      <div class="panel-actions">
+        <button id="addTaskBtn">Add Task</button>
+        <button id="clearTasks" class="ghost">Clear All</button>
+      </div>
+      <div class="list" id="tasksList"></div>
+    </div>
+
+    <!-- Flashcards -->
+    <div class="panel">
+      <div class="panel-header"><div>Flashcards</div></div>
+      <input id="cardQ" type="text" placeholder="Question" />
+      <input id="cardA" type="text" placeholder="Answer" />
+      <div class="panel-actions">
+        <button id="addCard">Add Card</button>
+        <button id="prevCard" class="ghost">Prev</button>
+        <button id="nextCard" class="ghost">Next</button>
+        <button id="deleteCard" class="ghost">Delete</button>
+      </div>
+      <div class="card-view" id="cardView">No deck</div>
+      <div class="progress"><div id="cardProg" class="progInner"></div></div>
+      <div><span id="cardCount">0 / 0</span></div>
+    </div>
+
+    <!-- Pomodoro -->
+    <div class="panel">
+      <div class="panel-header"><div>Pomodoro</div></div>
+      <div id="pomTimer">25:00</div>
+      <div class="panel-actions">
+        <button id="startPom">Start</button>
+        <button id="pausePom" class="ghost">Pause</button>
+        <button id="stopPom" class="ghost">Stop</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Fullscreen Pomodoro -->
+<div id="fsOverlay" class="fs-overlay">
+  <div class="fs-focus">FOCUS</div>
+  <div id="fsTimer">25:00</div>
+  <div><button id="fsStop" class="ghost">Exit</button></div>
+</div>
+
+<!-- Fullscreen Flashcards -->
+<div id="fsCardOverlay" class="fs-overlay">
+  <div class="fs-card" id="fsCard">
+    <div class="fs-card-inner" id="fsCardInner">
+      <div class="fs-card-front" id="fsCardFront">QUESTION</div>
+      <div class="fs-card-back" id="fsCardBack">ANSWER</div>
+    </div>
+  </div>
+  <div class="panel-actions">
+    <button id="fsPrevCardBtn" class="ghost">Prev Card</button>
+    <button id="fsCardToggle" class="ghost">Show Answer</button>
+    <button id="fsNextCardBtn" class="ghost">Next Card</button>
+    <button id="fsDeleteCardBtn" class="ghost">Delete Card</button>
+    <button id="fsCardClose" class="ghost">Exit</button>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
